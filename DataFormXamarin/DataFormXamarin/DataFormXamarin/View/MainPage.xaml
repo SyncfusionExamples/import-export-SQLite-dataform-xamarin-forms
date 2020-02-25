@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DataFormXamarin"
+             xmlns:dataForm="clr-namespace:Syncfusion.XForms.DataForm;assembly=Syncfusion.SfDataForm.XForms"
+             x:Class="DataFormXamarin.MainPage">
+    <ContentPage.BindingContext>
+        <local:DataFormViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.9*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <dataForm:SfDataForm x:Name="dataForm" LayoutOptions="TextInputLayout" 
+                             DataObject="{Binding Contact}" Grid.Row="0"/>
+        <Button x:Name="save" Text="Save" Grid.Row="1" HorizontalOptions="Center" Command="{Binding SaveCommand}" CommandParameter="{x:Reference dataForm}"/>
+    </Grid>
+
+</ContentPage>
